@@ -5,7 +5,7 @@ env = env.Clone()
 
 libs = []
 libs += env.SharedLibrary('mylib_level2', 'mylib_level2.cpp')
-libs += env.SharedLibrary('mylib_level1', 'mylib_level1.cpp', LINKFLAGS=['-z', 'origin'], RPATH=[env['RPATH_INSTALL'], env['RPATH_BUILD']], LIBPATH=['.'], LIBS=['mylib_level2'])
+libs += env.SharedLibrary('mylib_level1', 'mylib_level1.cpp', LIBS=['mylib_level2'])
 libs += env.SharedLibrary('mylib_level2_v1', 'mylib_level2_v1.cpp')
 
 Default(libs)
