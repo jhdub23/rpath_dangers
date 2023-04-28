@@ -1,5 +1,9 @@
 # RPATH in shared library dangers
 Example shared library loading inconsistency with RPATH embedded in libraries.
+Recommendation:
+- Do not relay on LD_LIBRARY_PATH since it has global side effects.
+- Use RPATH (or RUNPATH) within executables.
+- Strip RPATH (and RUNPATH) from shared libraries.
 
 ## CMake users
 
