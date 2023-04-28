@@ -1,6 +1,5 @@
+#include <src/libs/mylib_level1.hpp>
 #include <iostream>
-
-void hello_lib_level1();
 
 int main() {
   std::cout << "start: top" << std::endl;
