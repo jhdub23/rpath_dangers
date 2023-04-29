@@ -5,13 +5,13 @@ import os
 Import('env')
 env = env.Clone()
 
+# Helper variables
 rpath_install = env.Literal(os.path.join('\\$$ORIGIN', '..', 'lib'))
 rpath_build = env.Literal(os.path.join('\\$$ORIGIN', '..', 'libs'))
+rpath = [rpath_install, rpath_build]
+rpath_link = [f'-Wl,-rpath-link={rpath_build}']
 
-env.SetDefault(RPATH_INSTALL=rpath_install)
-env.SetDefault(RPATH_BUILD=rpath_build)
-rpath = [env['RPATH_INSTALL'], env['RPATH_BUILD']]
-rpath_link = [f'-Wl,-rpath-link={env["RPATH_BUILD"]}']
+# Set compile options.  Normally, this is not done globally, but all bins and shared libs we build will have this set as a starting point for demo/test purposes.
 env.AppendUnique(LINKFLAGS = ['-z', 'origin', rpath_link])
 env.AppendUnique(RPATH = rpath)
 env.AppendUnique(LIBPATH = ['../libs'])
