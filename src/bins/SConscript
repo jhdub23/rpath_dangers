@@ -7,4 +7,4 @@ progs = []
 progs += env.Program('top', 'top.cpp', LIBS=['mylib_level1'])
 progs += env.Program('top2', 'top2.cpp', LIBS=['mylib_level1', 'mylib_level2'])
 
-Default(progs)
+Alias('bins', progs)

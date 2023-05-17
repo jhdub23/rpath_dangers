@@ -6,3 +6,6 @@ env = Environment()
 env.SetDefault(CPPPATH = '#')
 
 env.SConscript('build/src/SConscript', exports='env')
+
+Alias('all', ['bins', 'libs'])
+Default('all')

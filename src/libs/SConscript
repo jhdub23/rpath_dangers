@@ -8,4 +8,4 @@ libs += env.SharedLibrary('mylib_level2', 'mylib_level2.cpp')
 libs += env.SharedLibrary('mylib_level1', 'mylib_level1.cpp', LIBS=['mylib_level2'])
 libs += env.SharedLibrary('mylib_level2_v1', 'mylib_level2_v1.cpp')
 
-Default(libs)
+Alias('libs', libs)
